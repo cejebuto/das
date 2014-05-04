@@ -38,7 +38,7 @@ $('#use_nam, #use_pas').keypress(function (e) {
 		   			$("#login").attr('disabled','disabled');
 		   			$("#use_pas").attr('disabled','disabled');
 		   			$("#use_nam").attr('disabled','disabled');	
-		   			document.location.href='#/inicio';
+		   			document.location.href='#/';
 		   			location.reload();
 	   			}else{
 		   			$("#msg_login").css('display', 'block', 'important');
