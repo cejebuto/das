@@ -12,10 +12,14 @@ $( document ).ready(function() {
 		   type: "POST",
 		   url: "/process/pro_loadcontent/pro_loadcontent.php",
 		   data: {option:option},
-		   success: function(){   
+		   success: function(resp){  
+		   	$("#contenmenu").load('/module/mod_'+resp+'/mod_'+resp+'.php');
+		   /* 
+		   	$("#contenmenu").html('<iframe src="http://www.w3schools.com"></iframe>');
+		   $("#contenmenu").html("<i class='fa fa-refresh fa-spin'></i>"+resp );
 				document.location.href='#/';
-		   		location.reload();
-		   },
+		   		location.reload();*/
+		   },	
 		   error: function(jqXHR,estado,error){
 		   	alert('ERROR-'+error+'--');
    		   },

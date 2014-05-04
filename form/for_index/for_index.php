@@ -52,8 +52,8 @@
 			<!-- end: Main Menu -->
 			<!-- start: Content -->
 			<div id="content" class="col-lg-10 col-sm-11" style="margin-top:-20px">
-				<div class="row">
-					<?php require $_SERVER['DOCUMENT_ROOT']."/module/mod_dashboard/mod_dashboard.php";?>
+				<div id="contenmenu"class="row">
+					
 				</div><!--/row-->
 			</div>
 			<!-- end: Content -->
