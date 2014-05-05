@@ -5,7 +5,7 @@
 			      <span class="icon-bar"></span>
 			</button>
 			<a id="main-menu-toggle" class="hidden-xs open"><i class="fa fa-bars"></i></a>		
-			<a class="navbar-brand col-md-2 col-sm-1 col-xs-2" href="#"><span>Orfeo 3.0</span></a>
+			<a class="navbar-brand col-md-2 col-sm-1 col-xs-2" href="#"><span>Admin 1.0</span></a>
 			<div id="search" class="col-sm-4 col-xs-8 col-lg-3" style="display:none" >
 				<input type="text" style="height:27px"placeholder="Buscar" />
 				<i class="fa fa-search"></i>

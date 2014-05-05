@@ -1,9 +1,10 @@
-<li><a class="menurgitcontrol" id="dashboard"href="#"><i class="fa fa-bar-chart-o"></i><span class="hidden-sm text"> Panel de Control</span></a></li>
-<li><a class="menurgitcontrol" id="uploadimage"href="#"><i class="fa fa-picture-o"></i><span class="hidden-sm text"> Cargar Imagen</span></a></li>
+<li><a class="menurgitcontrol" id="generateform"href="#"><i class="fa fa-star"></i><span class="hidden-sm text"> Generar Formulario</span></a></li>
+
 
 <script type="text/javascript">
 	
 $( document ).ready(function() {
+	$("#contenmenu").load('/module/mod_generateform/mod_generateform.php');
     $( ".menurgitcontrol" ).click(function() {
     	var option = $(this).attr('id');
   		$("#optionmenu").val(option);
@@ -14,11 +15,7 @@ $( document ).ready(function() {
 		   data: {option:option},
 		   success: function(resp){  
 		   	$("#contenmenu").load('/module/mod_'+resp+'/mod_'+resp+'.php');
-		   /* 
-		   	$("#contenmenu").html('<iframe src="http://www.w3schools.com"></iframe>');
-		   $("#contenmenu").html("<i class='fa fa-refresh fa-spin'></i>"+resp );
-				document.location.href='#/';
-		   		location.reload();*/
+
 		   },	
 		   error: function(jqXHR,estado,error){
 		   	alert('ERROR-'+error+'--');
@@ -28,7 +25,7 @@ $( document ).ready(function() {
 	});
 });
 </script>
-<input type="text" id="optionmenu" value="hello">
+<!--<input type="text" id="optionmenu" value="hello">-->
 
 
 
