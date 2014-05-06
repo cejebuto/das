@@ -82,9 +82,10 @@
 
 </HEAD>
 <BODY>
-     <form action="/module/mod_generateform/pro_generateform/pro_generateform.php" name="frmcreate" method="post">
+       <INPUT type="button" class="btn btn-success" value="A&ntilde;adir Campo" onclick="addRow('dataTable');" />
+     <INPUT type="button" class="btn btn-danger" value="Borrar Campo" onclick="deleteRow('dataTable');" /><br><br>
+     <form action="#" id="my_awesome_form" name="frmcreate" method="post">
 
-<input type="hidden" id="hortalizas"name="hortalizas" value='<?php echo serialize($mi_array) ?>'></input>
      TITULO PARA LA CODUMENTACION (AFILIACIONES, CLIENTES): <br>
      <INPUT type="text" name="TITULO_D" required/><br>
         
@@ -92,8 +93,7 @@
      <INPUT type="text" name="TITULO_S"  required/><br>
      VALUE PARA EL ADD(A,AC,AD): <br>
      <INPUT type="text" name="VALUE_S" required/><br><br>
-     <INPUT type="button" class="btn btn-success" value="A&ntilde;adir Campo" onclick="addRow('dataTable');" />
-     <INPUT type="button" class="btn btn-danger" value="Borrar Campo" onclick="deleteRow('dataTable');" /><br><br>
+
      <TABLE id="dataTable" width="350px" border="1">
             <TR>
                <TD>CHK</TD>
@@ -110,7 +110,7 @@
  <br>
 </form>
 </BODY>
-<!--
+
 <script type="text/javascript">
      
 $( document ).ready(function() {
@@ -130,7 +130,7 @@ $( document ).ready(function() {
             });
      });
 });
-</script>-->
+</script>
 <!--<input type="text" id="optionmenu" value="hello">-->
 
 

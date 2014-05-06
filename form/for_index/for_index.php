@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <html lang="es">
 <head>
 	
@@ -53,8 +54,8 @@
 			<!-- start: Content -->
 			<div id="content" class="col-lg-10 col-sm-11" style="margin-top:-20px">
 				<div id="contenmenu"class="row">
-					if(!isset($_SESSION['optionmenu']))
-				<?php require $_SERVER['DOCUMENT_ROOT']."/form/for_menu/for_menu.php";?>	
+					<?php if(!isset($_SESSION['option'])){$_SESSION['option']='dashboard';}
+				 require $_SERVER['DOCUMENT_ROOT']."/module/mod_".$_SESSION['option']."/mod_".$_SESSION['option'].".php";?>	
 				</div><!--/row-->
 			</div>
 			<!-- end: Content -->

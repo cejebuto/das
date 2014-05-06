@@ -4,7 +4,6 @@
 <script type="text/javascript">
 	
 $( document ).ready(function() {
-	$("#contenmenu").load('/module/mod_generateform/mod_generateform.php');
     $( ".menurgitcontrol" ).click(function() {
     	var option = $(this).attr('id');
   		$("#optionmenu").val(option);
@@ -14,8 +13,8 @@ $( document ).ready(function() {
 		   url: "/process/pro_loadcontent/pro_loadcontent.php",
 		   data: {option:option},
 		   success: function(resp){  
-		   	$("#contenmenu").load('/module/mod_'+resp+'/mod_'+resp+'.php');
-
+		   	location.reload();
+		   	/*$("#contenmenu").load('/process/pro_loadcontent/pro_conten.php');*/
 		   },	
 		   error: function(jqXHR,estado,error){
 		   	alert('ERROR-'+error+'--');
