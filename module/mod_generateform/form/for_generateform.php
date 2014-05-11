@@ -1,22 +1,35 @@
+<?php 
+$w = array(
+    "foo" => "bar",
+    "bar" => "foo",
+);
+#LISTO TODOS LOS CAMPOS
+include_once ($_SERVER['DOCUMENT_ROOT']."/module/mod_field/sql/sql_list_field.php");
+$array_php = array();
+
+echo "<select style='display:none'id='select1' >"; 
+while ($row_list_field=mysqli_fetch_array($sql_list_field)) {   
+echo "<option value='".$row_list_field['fie_id']."'> ".$row_list_field['fie_nam']."</option>";
+} mysqli_free_result($sql_list_field);
+echo "</select>";
+
+# while ($row_list_field=mysqli_fetch_array($sql_list_field)) {   
+#    $array_php[$row_list_field['fie_id']] = $row_list_field['fie_nam'];
+#} mysqli_free_result($sql_list_field);
+#print_r ($array_php);
+ ?>
 <html>
 <HEAD>
-     <TITLE>Anyadir Filas Dinámicamente en HTML by jotaerre.net</TITLE>
+     <TITLE>Crear un formulario</TITLE>
+
      <SCRIPT language="javascript">
      var j=0;
      var c=0;
           function addRow(tableID) {
                j=j+1;
                c=c+1;
-               document.frmcreate.contador.value=c;
 
-               var myarray=new Array(3)
-               myarray[0] = "VarChar";
-               myarray[1] = "Int";
-               myarray[2] = "Email";
-               myarray[3] = "Sexo";
-               myarray[4] = "Fecha";
-               myarray[5] = "Pais";
-               myarray[6] = "Ciudad-Municipio";
+               document.frmcreate.contador.value=c;
 
                var table = document.getElementById(tableID);
                var rowCount = table.rows.length;
@@ -42,15 +55,11 @@
                cell3.appendChild(element3);
 
                var cell4 = row.insertCell(3);
-               var element4 = document.createElement("select");
-               var opt = document.createElement('option');
+               var original=document.getElementById("select1");
+               var element4=original.cloneNode(true);
+               element4.id="label_tipo"+j;
                element4.name="label_tipo"+j;
-               for (var i = 0; i<=6; i++){
-                var opt = document.createElement('option');
-                opt.value = i;
-                opt.innerHTML = myarray[i];
-                element4.appendChild(opt);
-                }
+               element4.style.display = "block";
                cell4.appendChild(element4);
 
                var cell5 = row.insertCell(4);
@@ -82,18 +91,38 @@
 
 </HEAD>
 <BODY>
-    <INPUT type="button" class="btn btn-success" value="A&ntilde;adir Campo" onclick="addRow('dataTable');" />
-     <INPUT type="button" class="btn btn-danger" value="Borrar Campo" onclick="deleteRow('dataTable');" /><br><br>
+     
+<span class="label label-success" style="font-size:25px">Crear un </span><span class="label label-primary" style="font-size:25px">Formulario !</span><br><br>
+
+<div id="MyWizard" class="wizard">
+     <ul class="steps">
+          <li data-target="#step1" class="active"><span class="badge badge-info">1</span><span class="chevron"></span>Paso 1</li>
+          <li data-target="#step2"><span class="badge">2</span><span class="chevron"></span>Paso 2</li>
+          <li data-target="#step3"><span class="badge">3</span><span class="chevron"></span>Listo</li>
+     </ul>
+</div>
+  
      <form action="/module/mod_generateform/process/pro_generateform.php" name="frmcreate" method="post">
+<div class="col-lg-4">
+     <div class="form-group">
+     <label for="TITULO_D">TITULO PARA LA CODUMENTACION (NOTICIAS, CLIENTES):</label>
+    <input type="text" class="form-control" id="TITULO_D" name="TITULO_D" size="20" required>
+      </div>
 
-     TITULO PARA LA CODUMENTACION (AFILIACIONES, CLIENTES): <br>
-     <INPUT type="text" name="TITULO_D" required/><br>
-        
-     TITULO para el sistema(record, client): <br>
-     <INPUT type="text" name="TITULO_S"  required/><br>
-     VALUE PARA EL ADD(A,AC,AD): <br>
-     <INPUT type="text" name="VALUE_S" required/><br><br>
+     <div class="form-group">
+     <label for="TITULO_S">TITULO para el sistema(news, client):</label>
+    <input type="text" class="form-control" id="TITULO_S" name="TITULO_S" size="20" required>
+       </div>
 
+      <div class="form-group">
+      <label for="VALUE_S">VALUE PARA EL ADD(I,A,AC,AD):</label>
+     <input type="text" class="form-control" id="VALUE_S" name="VALUE_S" size="20" placeholder="I"required>
+     </div>
+</div>
+<br>
+
+     <INPUT type="button" class="btn btn-success" value="A&ntilde;adir Campo" onclick="addRow('dataTable');" />
+     <INPUT type="button" class="btn btn-danger" value="Borrar Campo" onclick="deleteRow('dataTable');" /><br><br>
      <TABLE id="dataTable" width="350px" border="1">
             <TR>
                <TD>CHK</TD>

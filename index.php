@@ -3,7 +3,7 @@ session_start();
 require_once 'config.php';?>
 <html>
 	<head>
-  	<title>Controladoeres</title>
+  	<title>Controladores</title>
     <script src="ajs/jquery.js"></script>
     <script src="ajs/bootstrap.min.js"></script>
     <script src="ajs/angular.min.js"></script>
