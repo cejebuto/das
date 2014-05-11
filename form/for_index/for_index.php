@@ -55,7 +55,7 @@
 			<div id="content" class="col-lg-10 col-sm-11" style="margin-top:-20px">
 				<div id="contenmenu"class="row">
 					<?php if(!isset($_SESSION['option'])){$_SESSION['option']='dashboard';}
-				 require $_SERVER['DOCUMENT_ROOT']."/module/mod_".$_SESSION['option']."/mod_".$_SESSION['option'].".php";?>	
+				 require $_SERVER['DOCUMENT_ROOT']."/module/mod_".$_SESSION['option']."/index.php";?>	
 				</div><!--/row-->
 			</div>
 			<!-- end: Content -->

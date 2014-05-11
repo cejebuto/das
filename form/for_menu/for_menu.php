@@ -1,4 +1,5 @@
-<li><a class="menurgitcontrol" id="generateform"href="#"><i class="fa fa-star"></i><span class="hidden-sm text"> Generar Formulario</span></a></li>
+<li id="generateform"><a class="menurgitcontrol" id="generateform"href="#"><i class="fa fa-star"></i><span class="hidden-sm text"> Generar Formulario</span></a></li>
+<li id="field"><a class="menurgitcontrol" id="field"href="#"><i class="fa fa-indent"></i><span class="hidden-sm text"> Agregar un Campo</span></a></li>
 
 
 <script type="text/javascript">
