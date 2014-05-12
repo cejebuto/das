@@ -3,7 +3,7 @@ if(!isset($_SESSION)){
  session_start();
 }
 if(!isset($_SESSION['suboption'])){
- $_SESSION['suboption']="for_generateform";
+ $_SESSION['suboption']="for_gen_form";
 }
 ?>
 
