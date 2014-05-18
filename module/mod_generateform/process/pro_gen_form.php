@@ -1,5 +1,8 @@
 <?php 
 
+#INCLUIMOS LA FUNCION QUE CREA DIRECTORIOS Y ARCHIVOS
+include_once ($_SERVER['DOCUMENT_ROOT']."/module/mod_generateform/function/fun_create_file.php");
+
 #LISTO TODOS LOS CAMPOS
 include_once ($_SERVER['DOCUMENT_ROOT']."/module/mod_field/sql/sql_list_field.php");
 $array_php = array();
@@ -153,7 +156,7 @@ $patterns[4] = '/{INCLUDESPHP}/';
 $patterns[5] = '/{SCRIPTJSINCLUDE}/';
 $patterns[6] = '/{SCRIPTJS}/';
 $patterns[7] = '/{FROMS}/';
-$replacements = array();
+ $replacements = array();
 $replacements[0] = $_SESSION['TITLE_USER'];
 $replacements[1] = $_SESSION['TITLE_SISTEM'];
 $replacements[2] = $_SESSION['VALUE_SISTEM'];
@@ -162,16 +165,29 @@ $replacements[4] = $WRAP_INCLUDE_PHP;
 $replacements[5] = $WRAP_INCLUDE_SCRIPT;
 $replacements[6] = $WRAP_ALL_ESCRIPT;
 $replacements[7] =  $BYB_FOR_ALL;
-
+ 
+#REEMPLAZAMOS TODAS LAS VARIABLES PARA GENERAR EL DOCUMENTO 
 $BYB_HTML_ALL = preg_replace($patterns, $replacements, $BYB_HTML_ALL);
 
+#PREPARAMOS EL ARCHIVO PARA CREARLO
+#$BYB_HTML_ALL = str_replace('"','\"', $BYB_HTML_ALL);
 
-echo "<pre><xmp>".$BYB_HTML_ALL."</xmp></pre>";
+#echo "<pre><xmp>".$BYB_HTML_ALL."</xmp></pre>";
+
  		/*$_SESSION['FORMULARIO'][$i][0]=$_POST["label_sistema".$i];
 		$_SESSION['FORMULARIO'][$i][1]=$_POST["label_usuario".$i];
 		$_SESSION['FORMULARIO'][$i][2]=$_POST["label_tipo".$i];*/
 
-echo "Entro a crear el fotmulario";
+$BYB_NAM_MOD = $_SESSION['TITLE_USER']."-".date('Y-m-d H:i:s');
+$BYB_NAM_OPT = "aym_module";
+$BYB_DIR = "aym_".$_SESSION['TITLE_SISTEM'];
+$BYB_NAM_FILE ="aym_add_".$_SESSION['TITLE_SISTEM'];
+#$BYB_MAIN_DIR = $_SERVER['DOCUMENT_ROOT']."/module/mod_generateform/modules_generated/".$BYB_NAM_MOD."/".$BYB_NAM_OPT."/".$BYB_DIR."/";
+
+create_file ($BYB_NAM_MOD, $BYB_NAM_OPT, $BYB_DIR, $BYB_NAM_FILE, $BYB_HTML_ALL);
+#create_file("hello");
+
+#echo "--->".$BYB_MAIN_DIR."<BR>";
 
 
  ?>
