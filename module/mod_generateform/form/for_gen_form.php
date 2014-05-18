@@ -107,17 +107,17 @@ echo "</select>";
 <div class="col-lg-4">
      <div class="form-group">
      <label for="TITLE_USER">TITULO PARA LA CODUMENTACION (NOTICIAS, CLIENTES):</label>
-    <input type="text" class="form-control" id="TITLE_USER" name="TITLE_USER" size="20" value ="sds"required>
+    <input type="text" class="form-control" id="TITLE_USER" name="TITLE_USER" size="20" value ="NOTICIAS"required>
       </div>
 
      <div class="form-group">
      <label for="TITLE_SISTEM">TITULO para el sistema(news, client):</label>
-    <input type="text" class="form-control" id="TITLE_SISTEM" name="TITLE_SISTEM" size="20" value ="sdsdd" required>
+    <input type="text" class="form-control" id="TITLE_SISTEM" name="TITLE_SISTEM" size="20" value ="news" required>
        </div>
 
       <div class="form-group">
       <label for="VALUE_SISTEM">VALUE PARA EL ADD(I,A,AC,AD):</label>
-     <input type="text" class="form-control" id="VALUE_SISTEM" name="VALUE_SISTEM" size="20" value ="sdsdsd" placeholder="I"required>
+     <input type="text" class="form-control" id="VALUE_SISTEM" name="VALUE_SISTEM" size="20" value ="I" placeholder="I"required>
      </div>
 </div>
 <br>

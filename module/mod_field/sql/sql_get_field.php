@@ -4,7 +4,7 @@ $connectdb=connecttodb();
 mysqli_set_charset($connectdb, "utf8");
 
 	#QUERY
-$query = "SELECT `fie_id`,`fie_nam`,`fie_cod` FROM `byb_field` WHERE `fie_id`=".$_SESSION['itemid'];
+$query = "SELECT `fie_id`,`fie_nam`,`fie_cod_add`,`fie_cod_edi`,`fie_cod_com`,`fie_cod_js` FROM `byb_field` WHERE `fie_id`=".$_SESSION['itemid'];
 
 
 $sql_field = mysqli_query($connectdb,$query) or die(mysqli_error($connectdb));

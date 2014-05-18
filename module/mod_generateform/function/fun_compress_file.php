@@ -39,14 +39,14 @@
       //la ruta debe ser relativa no absoluta      
       //$dir = $_SERVER['DOCUMENT_ROOT'].'/module/mod_generateform/modules_generated/'.$BYB_NAM_MOD.'/';
 
-      $dir = 'modules_generated/'.$BYB_NAM_MOD.'/';
+      $dir = 'modules_generated/'.$_SESSION['BYB_NAM_MOD'].'/';
 
  
       //ruta donde guardar los archivos zip, ya debe existir
       $rutaFinal=$_SERVER['DOCUMENT_ROOT'].'/module/mod_generateform/modules_generated/';
 
-      $archivoZip = $BYB_DIR.".zip";  
-      $rutadescarga = '/module/mod_generateform/modules_generated/'.$archivoZip;
+      $_SESSION['archivoZip'] =$archivoZip = $_SESSION['BYB_NAM_MOD'].".zip";  
+      $_SESSION['rutadescarga'] = $rutadescarga = '/module/mod_generateform/modules_generated/'.$archivoZip;
 
  
       if($zip->open($archivoZip,ZIPARCHIVE::CREATE)===true) {  
@@ -61,8 +61,8 @@
  
         //Verifico si el archivo ha sido creado
         if (file_exists($rutaFinal.$archivoZip)){
-          echo "Proceso Finalizado!! <br/><br/>
-               Descargar: <a href='$rutadescarga'>$archivoZip</a>";  
+          echo "Proceso Finalizado!! <br/><br/>Descargar: <a href='$rutadescarga'>$archivoZip</a>";  
+
         }else{
           echo "Error, archivo zip no ha sido creado!!";
         }                    

@@ -18,15 +18,37 @@
  		 </p>
 		 <br><br><br>
 		<p>
-			<label for="fie_cod">
-			Codigo del Campo:
+			<label for="fie_cod_add">
+			Codigo del Campo Para Agregar:
 			</label>
 		</p>
-			<textarea class="contencode" cols="80" id="fie_cod" name="fie_cod" rows="10"></textarea>
+			<textarea class="contencode" cols="80" id="fie_cod_add" name="fie_cod_add" rows="10"></textarea>
+		<br>	
+		<p>
+			<label for="fie_cod_edi">
+			Codigo del Campo Para Editar:
+			</label>
+		</p>
+			<textarea class="contencode" cols="80" id="fie_cod_edi" name="fie_cod_edi" rows="10"></textarea>
+		<br>	
+		<p>
+			<label for="fie_cod_com">
+			Codigo del Campo Para El componente:
+			</label>
+		</p>
+			<textarea class="contencode" cols="80" id="fie_cod_com" name="fie_cod_com" rows="4"></textarea>
+		<br>	
+		<p>
+			<label for="fie_cod_js">
+			Codigo del Campo Para el validar JS:
+			</label>
+		</p>
+			<textarea class="contencode" cols="80" id="fie_cod_js" name="fie_cod_js" rows="4"></textarea>
 		<br>
 		<p>
 			<input type="submit" class="btn btn-primary"value="Enviar">
 		</p>
+		 <br><br><br>
 	</form>
 </body>
 </html>

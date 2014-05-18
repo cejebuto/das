@@ -5,8 +5,8 @@
 
 <div id="MyWizard" class="wizard">
      <ul class="steps">
-          <li data-target="#step1"><span class="badge badge-info">1</span><span class="chevron"></span>Paso 1</li>
-          <li data-target="#step2" class="active"><span class="badge">2</span><span class="chevron"></span>Paso 2</li>
+          <li data-target="#step1"><span class="badge">1</span><span class="chevron"></span>Paso 1</li>
+          <li data-target="#step2" class="active"><span class="badge badge-info">2</span><span class="chevron"></span>Paso 2</li>
           <li data-target="#step3"><span class="badge">3</span><span class="chevron"></span>Listo</li>
      </ul>
 </div>

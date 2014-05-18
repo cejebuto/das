@@ -20,6 +20,9 @@ $_SESSION['TITLE_USER']=$_POST["TITLE_USER"];
 $_SESSION['TITLE_SISTEM']=$_POST["TITLE_SISTEM"];
 $_SESSION['VALUE_SISTEM']=$_POST["VALUE_SISTEM"];
 
+#$_SESSION['BYB_NAM_MOD'] = $_SESSION['TITLE_USER']."-".date('Y-m-d H:i:s');
+
+
 /*
 foreach ($_SESSION['FORMULARIO'] as $v1) {
     foreach ($v1 as $v2) {

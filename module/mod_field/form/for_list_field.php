@@ -21,7 +21,7 @@ include_once ($_SERVER['DOCUMENT_ROOT']."/module/mod_field/sql/sql_list_field.ph
       <td><?php echo $row_list_field['fie_id'] ?></td> 
       <td><?php echo $row_list_field['fie_nam'] ?></td>
      <!-- <td><?php echo $row_list_field['fie_cod'] ?></td>-->
-      <td><?php echo "<pre><xmp>".$row_list_field['fie_cod']."</xmp></pre>" ?></td>
+      <td><?php echo "<pre><xmp>".$row_list_field['fie_cod_add']."</xmp></pre>" ?></td>
       <td><a href="#" class="editfield" id="for_edit_field" name="<?php echo $row_list_field['fie_id'] ?>"><i class="fa fa-pencil-square-o fa-2x text-success"></i></a></td>
 	</tr>
     <?php } mysqli_free_result($sql_list_field); ?> 

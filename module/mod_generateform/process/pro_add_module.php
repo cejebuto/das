@@ -13,11 +13,33 @@ if (($_POST["opt_sea"]=="on") or ($_POST["opt_edi"]=="on") or ($_POST["opt_del"]
 	$_POST["opt_lis"]="on";
 }
 
+$_SESSION['BYB_NAM_MOD'] = $_SESSION['TITLE_USER']."-".date('Y-m-d H:i:s');
 
-#CREAMOS EL FORMULARIO
+
+#LISTO TODOS LOS CAMPOS
+include_once ($_SERVER['DOCUMENT_ROOT']."/module/mod_field/sql/sql_list_field.php");
+###################################################################################
+
+
+
+#CREAMOS EL FORMULARIO DE AGREGAR
 require $_SERVER['DOCUMENT_ROOT']."/module/mod_generateform/process/pro_gen_form.php";
 
-exit;
+mysqli_data_seek($sql_list_field, 0);
+
+#CREAMOS EL FORMULARIO DE EDITAR
+require $_SERVER['DOCUMENT_ROOT']."/module/mod_generateform/process/pro_gen_form_edit.php";
+
+mysqli_data_seek($sql_list_field, 0);
+
+#CREAMOS EL ADM DEL FORMULARIO
+require $_SERVER['DOCUMENT_ROOT']."/module/mod_generateform/process/pro_gen_adm.php";
+
+mysqli_free_result($sql_list_field);
+
+
+#COMPRIMIMOS EL ARCHIVO EL FORMULARIO 
+require $_SERVER['DOCUMENT_ROOT']."/module/mod_generateform/function/fun_compress_file.php";
 
 
 /*unset($_SESSION['FORMULARIO']);
@@ -45,10 +67,3 @@ $_SESSION['suboption']="for_down_module";
 header('Location: /');
 ?>
 
-
-
-<?php 
-
-
-echo " Entro a procesar el modulo ";exit;
- ?>

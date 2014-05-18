@@ -8,7 +8,7 @@ $k=0;
 #RECORREMOS LA TABLA DE CAMPOS Y LA GUARDAMOS EN VARIABLES LOCALES
 while ($row_list_field=mysqli_fetch_array($sql_list_field)) {   
 $BYB_FIELD_ID[$i]= $row_list_field['fie_id'];
-$AUX_BYB_FIELD_COD[$i]= $row_list_field['fie_cod_add'];
+$AUX_BYB_FIELD_COD[$i]= $row_list_field['fie_cod_edi'];
 $i++;
 $k++;
 } //mysqli_free_result($sql_list_field);
@@ -58,23 +58,26 @@ for ($i=1;$i<=$_SESSION['CONTADOR'];$i++){
 	}
  }
 
-#CAABEZERA DEL CODIGO LLENAR LOS INCLUDES Y LOS JS SI SON NECESARIOS! PREFERIBLEMENTE, LLAMAR ESTO DE UNA BASE DE DATOS
+#CABEZERA DEL CODIGO LLENAR LOS INCLUDES Y LOS JS SI SON NECESARIOS! PREFERIBLEMENTE, LLAMAR ESTO DE UNA BASE DE DATOS
 $BYB_HTML_ALL = '<?php # **************************** AYM EASY SITE V: 5.1 ********************
-# FORMULARIO PARA AGREGAR @TITULO@
+# FORMULARIO PARA EDITAR @TITULO@
 # AYMSOFT SAS
 # @FECHA@
+
+# COMPONENTE QUE TRAE LOS DATOS -->  @FORMULARIO@
+include_once ($_SERVER['."'"."DOCUMENT_ROOT"."'".']."/aymsite/aym_sql/aym_@FORMULARIO@/aym_sql_get_@FORMULARIO@.php");
 
 {INCLUDESPHP}
 ?>
 {SCRIPTJSINCLUDE}
-<form action="/aymsite/action@FORMULARIO@" method="post" name="frm_add_@FORMULARIO@" id="frm_add_@FORMULARIO@" enctype="multipart/form-data">
+<form action="/aymsite/action@FORMULARIO@" method="post" name="frm_edit_@FORMULARIO@" id="frm_edit_@FORMULARIO@" enctype="multipart/form-data">
 	<fieldset class="aym_frm_content">
 		{FROMS}
 		<div class="aym_clear"></div> 
 		<div class="aym_frm_two_col">
 			<div class="aym_col_1">&nbsp;</div>
 			<div class="aym_col_2"><input type="submit" value="Aceptar" class=""/> 
-				<input name="action" type="hidden" id="action" value="@VALUE@" />
+				<input name="action" type="hidden" id="action" value="U" />
 			</div>
 			<div class="aym_clear"></div>
 		</div>
@@ -176,7 +179,7 @@ $BYB_HTML_ALL = preg_replace($patterns, $replacements, $BYB_HTML_ALL);
 #PREPARAMOS EL ARCHIVO PARA CREARLO
 #$BYB_HTML_ALL = str_replace('"','\"', $BYB_HTML_ALL);
 
-#echo "<pre><xmp>".$BYB_HTML_ALL."</xmp></pre>"; exit;
+#echo "<pre><xmp>".$BYB_HTML_ALL."</xmp></pre>";exit;
 
  		/*$_SESSION['FORMULARIO'][$i][0]=$_POST["label_sistema".$i];
 		$_SESSION['FORMULARIO'][$i][1]=$_POST["label_usuario".$i];
@@ -184,7 +187,7 @@ $BYB_HTML_ALL = preg_replace($patterns, $replacements, $BYB_HTML_ALL);
 
 $BYB_NAM_OPT = "aym_module";
 $BYB_DIR = "aym_".$_SESSION['TITLE_SISTEM'];
-$BYB_NAM_FILE ="aym_add_".$_SESSION['TITLE_SISTEM'];
+$BYB_NAM_FILE ="aym_edit_".$_SESSION['TITLE_SISTEM'];
 #$BYB_MAIN_DIR = $_SERVER['DOCUMENT_ROOT']."/module/mod_generateform/modules_generated/".$BYB_NAM_MOD."/".$BYB_NAM_OPT."/".$BYB_DIR."/";
 
 create_file ($_SESSION['BYB_NAM_MOD'], $BYB_NAM_OPT, $BYB_DIR, $BYB_NAM_FILE, $BYB_HTML_ALL);

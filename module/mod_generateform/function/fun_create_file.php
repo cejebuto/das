@@ -38,12 +38,8 @@ $BYB_RUTA = $_SERVER['DOCUMENT_ROOT'].'/module/mod_generateform/modules_generate
 
 if(fwrite($nuevoarchivo, $BYB_HTML_ALL)){
 fclose($nuevoarchivo);
-	#CREAMOS LA RUTA DEL DIRECTORIO A COMPRMIR
-	$BYB_MOD_TO_COMPRESS = $_SERVER['DOCUMENT_ROOT'].'/module/mod_generateform/modules_generated/'.$BYB_NAM_MOD.'/';
-
-	#COMPRIMIMOS EL ARCHIVO EL FORMULARIO 
-	require $_SERVER['DOCUMENT_ROOT']."/module/mod_generateform/function/fun_compress_file.php";
-	#require $_SERVER['DOCUMENT_ROOT']."/module/mod_generateform/modules_generated/fun_compress_file.php";
+#echo "Documento --> ".$BYB_NAM_FILE."--";
+	
 }else{
 	echo "No se pudo crear el archivo";
 }
